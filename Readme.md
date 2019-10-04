@@ -9,3 +9,7 @@ some of these make electron break:
     "electron-prebuilt": "^1.4.13",
     "electron-rebuild": "^1.8.6",
     "electron-reload": "^1.2.5",
+The node version does not use GPU - unlike the webgl accelerated browser version. However, the C code still seems to be faster in electron. And the canvas is much smoother. The fps calculator might be incorrect.
+
+fix napi-4 bug:
+cp -r ./node_modules/@tensorflow/tfjs-node/lib/napi-v3 ./node_modules/@tensorflow/tfjs-node/lib/napi-v4
