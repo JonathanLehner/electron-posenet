@@ -1,3 +1,5 @@
+# posenet code was made for posture penguin in hackzurich 2019 - team ergohack achieved 2nd overall and 1st in the logitech challenge
+
 npm rebuild @tensorflow/tfjs-node --build-from-source --target=v12.4.0
 doesnt work (node-pre-gyp error)
 
