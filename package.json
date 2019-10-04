@@ -16,6 +16,8 @@
     ]
   },
   "dependencies": {
+    "@tensorflow/tfjs-node": "^1.2.10",
+    "fsevents": "^2.1.0",
     "node-pre-gyp": "^0.13.0"
   },
   "scripts": {
@@ -39,8 +41,6 @@
     "@babel/preset-react": "^7.0.0",
     "@tensorflow-models/posenet": "^2.1.1",
     "@tensorflow/tfjs-converter": "^1.2.10",
-    "@tensorflow/tfjs-core": "^1.2.10",
-    "@tensorflow/tfjs-node": "^1.2.10",
     "babel-preset-env": "",
     "babel-preset-react": "",
     "clang-format": "~1.2.2",
@@ -48,11 +48,9 @@
     "dat.gui": "^0.7.2",
     "electron": "^6.0.11",
     "electron-builder": "^20.28.4",
-    "electron-prebuilt": "^1.4.13",
-    "electron-rebuild": "^1.8.6",
-    "electron-reload": "^1.2.5",
     "eucli": "^1.0.3",
     "parcel-bundler": "^1.12.3",
+    "parcel-plugin-static-files-copy": "^2.2.1",
     "seedrandom": "~2.4.3",
     "stats.js": "^0.17.0",
     "yalc": "~1.0.0-pre.27"
