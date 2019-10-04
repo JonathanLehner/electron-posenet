@@ -1,0 +1,60 @@
+{
+  "name": "tfjs-models",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "license": "Apache-2.0",
+  "private": true,
+  "build": {
+    "appId": "parcel.reactjs.electron",
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "files": [
+      "main.js",
+      "build/*"
+    ]
+  },
+  "dependencies": {
+    "node-pre-gyp": "^0.13.0"
+  },
+  "scripts": {
+    "dev": "parcel ./src/camera.html -d build/ --public-url ./ --no-hmr --target electron",
+    "start-dev": "ELECTRON_START_URL=http://localhost:1234 electron .",
+    "start": "electron .",
+    "build": "parcel build ./src/camera.html -d build/ --public-url ./ --target electron",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "lint": "eslint ."
+  },
+  "browser": {
+    "crypto": false
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "@tensorflow-models/posenet": "^2.1.1",
+    "@tensorflow/tfjs-converter": "^1.2.10",
+    "@tensorflow/tfjs-core": "^1.2.10",
+    "@tensorflow/tfjs-node": "^1.2.10",
+    "babel-preset-env": "",
+    "babel-preset-react": "",
+    "clang-format": "~1.2.2",
+    "core-js": "^3.2.1",
+    "dat.gui": "^0.7.2",
+    "electron": "^6.0.11",
+    "electron-builder": "^20.28.4",
+    "electron-prebuilt": "^1.4.13",
+    "electron-rebuild": "^1.8.6",
+    "electron-reload": "^1.2.5",
+    "eucli": "^1.0.3",
+    "parcel-bundler": "^1.12.3",
+    "seedrandom": "~2.4.3",
+    "stats.js": "^0.17.0",
+    "yalc": "~1.0.0-pre.27"
+  }
+}
