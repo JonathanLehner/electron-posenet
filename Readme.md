@@ -2,6 +2,9 @@
 
 ![desktop app](https://github.com/JonathanLehner/electron-posenet/blob/master/71496939_2108432516126044_3081230763878776832_n.png)
 
+The live demo of the web version is available online at https://posture-penguin.web.app/ 
+
+Bugs in building with electron:
 npm rebuild @tensorflow/tfjs-node --build-from-source --target=v12.4.0
 doesnt work (node-pre-gyp error)
 
