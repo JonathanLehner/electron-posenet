@@ -1,4 +1,6 @@
 const { app, BrowserWindow } = require('electron')
+const { protocol } = require('electron')
+const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -7,8 +9,8 @@ let win
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 800,
     webPreferences: {
       nodeIntegration: true,
       nodeIntegrationInWorker: true
@@ -16,7 +18,15 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  win.loadFile('./build/camera.html');
+  //win.loadFile('./build/index.html');
+  //const url = path.join(require('electron').remote.app.getAppPath());
+  //win.loadURL(url)
+  const url = require('url')
+  win.loadURL(url.format({
+    pathname: './build/index.html',    /* Attention here: origin is path.join(__dirname, 'index.html') */
+    protocol: 'file',
+    slashes: true
+  }))
 
   // Open the DevTools.
   win.webContents.openDevTools()
@@ -33,7 +43,19 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+// https://stackoverflow.com/questions/38204774/serving-static-files-in-electron-react-app
+app.on('ready', () => {
+  protocol.interceptFileProtocol('file', (request, callback) => {
+    const url = request.url.substr(7)    /* all urls start with 'file://' */
+    console.log(url);
+    const new_url = path.normalize(`${__dirname}/${url}`);
+    console.log(new_url);
+    callback({ path: new_url})
+  }, (err) => {
+    if (err) console.error('Failed to register protocol')
+  })
+  createWindow()
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

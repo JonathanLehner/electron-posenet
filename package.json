@@ -21,10 +21,12 @@
     "node-pre-gyp": "^0.13.0"
   },
   "scripts": {
-    "dev": "parcel ./src/camera.html -d build/ --public-url ./ --no-hmr --target electron",
-    "start-dev": "ELECTRON_START_URL=http://localhost:1234 electron .",
-    "start": "electron .",
-    "build": "parcel build ./src/camera.html -d build/ --public-url ./ --target electron",
+    "dev": "cd poseguard-app && npm run start",
+    "build": "cd poseguard-app && react-scripts build",
+    "test": "cd poseguard-app && react-scripts test",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "electron-copy": "rm -r ./build && rm -r ./static && cp -r ./poseguard-app/build ./build && cp -r ./build/static ./static && cp ./build/**.bin ./ && cp ./build/**.json ./",
+    "electron-start": "electron ./",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
@@ -52,7 +54,6 @@
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-static-files-copy": "^2.2.1",
     "seedrandom": "~2.4.3",
-    "stats.js": "^0.17.0",
-    "yalc": "~1.0.0-pre.27"
+    "stats.js": "^0.17.0"
   }
 }
